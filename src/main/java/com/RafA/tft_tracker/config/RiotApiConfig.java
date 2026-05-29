@@ -17,7 +17,6 @@ public class RiotApiConfig {
 
     @Bean
     public RestClient restClient(){
-        System.out.println("API Key Loaded: " + apiKey);
         return RestClient.builder().defaultHeader("X-Riot-Token", apiKey).build();
     }
 

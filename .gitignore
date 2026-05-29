@@ -34,3 +34,4 @@ build/
 
 ### User added ###
 /src/main/resources/application.properties
+launch.json

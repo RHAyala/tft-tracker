@@ -21,7 +21,7 @@ public class RiotApiService {
         String url = config.getRegionalBaseUrl()
                     + "/riot/account/v1/accounts/by-riot-id/"
                     + gameName + "/" + tagLine;
-        
+        System.out.println("GET ACCOUNT URL: " + url);
         return restClient.get().uri(url).retrieve().body(JsonNode.class);
     }
     //Step 2: Get summonder data by PUUID
@@ -33,9 +33,9 @@ public class RiotApiService {
     }
 
     // Step 3: Get ranked info by summoner ID
-    public JsonNode getRankBySummonerId(String summonerId) {
+    public JsonNode getRankByPuuid(String puuid) {
         String url = config.getPlatformBaseUrl()
-                + "/tft/league/v1/entries/by-summoner/" + summonerId;
+                + "/tft/league/v1/by-puuid/" + puuid;
 
         return restClient.get()
                 .uri(url)
