@@ -1,5 +1,7 @@
 package com.RafA.tft_tracker.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,6 +20,7 @@ public class Player {
     private String puuid;
     @Column(nullable = false)
     private String riotId;
+    @JsonIgnore
     private String summonerId;
     private String currentRank;
     private Integer currentLp;

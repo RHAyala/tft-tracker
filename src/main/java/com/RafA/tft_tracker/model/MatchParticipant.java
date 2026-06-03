@@ -2,6 +2,8 @@ package com.RafA.tft_tracker.model;
 
 import java.lang.annotation.Target;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 @Entity
 @Table(name="match_participant")    
@@ -11,9 +13,11 @@ public class MatchParticipant {
     private Long id;
     @ManyToOne
     @JoinColumn(name="match_id", nullable = false)
+    @JsonIgnore
     private Match match;
     @ManyToOne
     @JoinColumn(name="player_id", nullable = false)
+    @JsonIgnore
     private Player player;
 
     private Integer placement;

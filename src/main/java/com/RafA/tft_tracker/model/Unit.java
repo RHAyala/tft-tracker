@@ -1,5 +1,7 @@
 package com.RafA.tft_tracker.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -10,6 +12,7 @@ public class Unit {
     private Long id;
     @ManyToOne
     @JoinColumn(name="match_participant_id",nullable = false)
+    @JsonIgnore
     private MatchParticipant matchParticipant;
     
     private String characterId;
