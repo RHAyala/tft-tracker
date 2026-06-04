@@ -46,7 +46,7 @@ public class RiotApiService {
     public JsonNode getMatchIdsByPuuid(String puuid, int count){
         String url = config.getRegionalBaseUrl()
                     +"/tft/match/v1/matches/by-puuid/" + puuid
-                    +"/ids?count=" + count;
+                    +"/ids?queue=1100&count=" + count;
         return restClient.get().uri(url).retrieve().body(JsonNode.class);
     }
     //Step 5: Get full match data by ID

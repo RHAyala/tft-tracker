@@ -35,3 +35,4 @@ build/
 ### User added ###
 /src/main/resources/application.properties
 launch.json
+src/main/resources/html/index.html

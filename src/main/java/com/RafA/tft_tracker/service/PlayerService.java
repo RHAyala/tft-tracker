@@ -41,10 +41,16 @@ public class PlayerService {
             JsonNode rankData = riotApiService.getRankByPuuid(puuid);
             String currentRank = "UNRANKED";
             Integer currentLp = 0;
-            if(rankData.size()> 0){
-                currentRank = rankData.get("tier").asString()
-                +" " + rankData.get("rank").asString();
-                currentLp = rankData.get("leaguePoints").asInt();
+            if (rankData.isArray() && rankData.size() > 0) {
+                for (JsonNode entry : rankData) {
+                    String queueType = entry.get("queueType").asString();
+                    if ("RANKED_TFT".equals(queueType)) {
+                        currentRank = entry.get("tier").asString()
+                                + " " + entry.get("rank").asString();
+                        currentLp = entry.get("leaguePoints").asInt();
+                        break;
+                    }
+                }
             }
 
             //Build and save the player
